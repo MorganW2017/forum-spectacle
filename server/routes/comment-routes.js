@@ -28,6 +28,9 @@ router.post('/api/posts/:id/comments', (req, res, next)=>{
     req.body.postId = req.session.uid
     Comments.create(req.body)
         .then(comment => {
+            if(!req.session.uid){
+                return res.status(401).send("Please login to comment.")
+            }
             let response = {
                 data: comment,
                 message: 'Successfully created Comment!'
