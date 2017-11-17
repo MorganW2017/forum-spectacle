@@ -16,21 +16,20 @@ function PostController(){
             <div class="comment-tracker">
                 <h4 style="display:inline">Alive: 12</h4>
                 <h4 style="display:inline">Dead: 3</h4>
-            </div>
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-1">
-                    <form onsubmit="app.controllers.commentController.addComment(event)">
-                        <input type="text" class="comment-field p-l-10" placeholder="Type comment here">
-                        <button type="onsubmit">Comment</button>
-                    </form>
-                </div>
+                <button onsubmit="app.controllers.postController.showComments(event)">Comments</button>
             </div>
         </div>
             `
             
         }
-        template = postElem
+        postElem.innerHTML = template
     }
+    this.addPost = function addPost(event){
+        event.preventDefault()
+        var post = event.target
+        postService.addPost(post, getPosts)
+    }
+
     getPosts()
 
 }
