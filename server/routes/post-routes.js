@@ -24,7 +24,7 @@ router.get('/api/posts/:id', (req, res, next)=>{
 })
 
 router.post('/api/posts', (req, res, next)=>{
-    req.body.userId = req.session.uid
+    req.body.creatorId = req.session.uid
     Posts.create(req.body)
         .then(post => {
             let response = {
@@ -52,9 +52,13 @@ router.put('/api/posts/:id', (req, res, next)=>{
 
 
 router.delete('/api/posts/:id', (req, res, next)=>{
-    Posts.findByIdAndRemove(req.params.id)
-        .then(()=>{
-            res.send({message: 'So much for that post'})
+    Posts.findById(req.params.id)
+        .then((post)=>{
+            if(post.creatorId != req.session.uid){
+                return res.status(401).send('UNAUTHORIZED')
+            }
+            post.remove()
+            res.send({message: 'So much for that post!'})
         })
         .catch(err =>{
             res.status(400).send({Error: err})

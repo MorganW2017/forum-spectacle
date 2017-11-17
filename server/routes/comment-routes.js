@@ -24,7 +24,8 @@ router.get('/api/posts/:id/comments/:id', (req, res, next)=>{
 })
 
 router.post('/api/posts/:id/comments', (req, res, next)=>{
-    req.body.userId = req.session.uid
+    req.body.creatorId = req.session.uid
+    req.body.postId = req.session.uid
     Comments.create(req.body)
         .then(comment => {
             let response = {
@@ -52,10 +53,14 @@ router.put('/api/posts/:id/comments/:id', (req, res, next)=>{
 
 
 router.delete('/api/posts/:id/comments/:id', (req, res, next)=>{
-    Comments.findByIdAndRemove(req.params.id)
-        .then(()=>{
-            res.send({message: 'So much for that comment'})
-        })
+    Comments.findById(req.params.id)
+    .then((comment)=>{
+        if(comment.creatorId != req.session.uid){
+            return res.status(401).send('UNAUTHORIZED')
+        }
+        comment.remove()
+        res.send({message: 'So much for that comment!'})
+    })
         .catch(err =>{
             res.status(400).send({Error: err})
         })
