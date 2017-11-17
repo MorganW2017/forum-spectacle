@@ -58,7 +58,7 @@ router.put('/api/posts/:id/comments/:id', (req, res, next)=>{
 router.delete('/api/posts/:id/comments/:id', (req, res, next)=>{
     Comments.findById(req.params.id)
     .then((comment)=>{
-        if(comment.creatorId != req.session.uid){
+        if(comment.creatorId.toString() != req.session.uid){
             return res.status(401).send('UNAUTHORIZED')
         }
         comment.remove()

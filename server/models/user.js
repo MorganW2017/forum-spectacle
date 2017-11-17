@@ -2,13 +2,14 @@ var mongoose = require('mongoose')
 var bcrypt = require('bcryptjs')
 var Schema = mongoose.Schema
 var ObjectId = Schema.Types.ObjectId
+
 const SALT_FACTOR = 10
 
 var schema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true, dropDups: true },
   password: { type: String, required: true },
-  created: { type: Number, required: true, default: Date.now() }
+  created: { type: Number, default: Date.now() }
 })
 
 schema.pre('save', function (next) {
