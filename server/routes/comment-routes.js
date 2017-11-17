@@ -23,7 +23,7 @@ router.get('/api/posts/:id/comments/:id', (req, res, next)=>{
         })
 })
 
-router.post('/api/posts/:id', (req, res, next)=>{
+router.post('/api/posts/:id/comments', (req, res, next)=>{
     req.body.userId = req.session.uid
     Comments.create(req.body)
         .then(comment => {
@@ -39,7 +39,7 @@ router.post('/api/posts/:id', (req, res, next)=>{
 })
 
 
-router.put('/api/posts/:id', (req, res, next)=>{
+router.put('/api/posts/:id/comments/:id', (req, res, next)=>{
     var action = 'Update Comment'
     Comments.findByIdAndUpdate(req.params.id, req.body)
         .then(data=>{
@@ -51,7 +51,7 @@ router.put('/api/posts/:id', (req, res, next)=>{
 })
 
 
-router.delete('/api/posts/:id', (req, res, next)=>{
+router.delete('/api/posts/:id/comments/:id', (req, res, next)=>{
     Comments.findByIdAndRemove(req.params.id)
         .then(()=>{
             res.send({message: 'So much for that comment'})
