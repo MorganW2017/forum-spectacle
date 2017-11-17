@@ -1,10 +1,10 @@
 var mongoose = require('mongoose')
 
-var schema = new Schema({
-  title: {type: string, required: true},
-  description: {type: string, required: true},
-  created: {type: num, defualt: Date.now()},
-  comments: [{ type: ObjectId, ref: 'Comment' }],
+var schema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  created: { type: Number, defualt: Date.now() },
+  // comments: [{ type: ObjectId, ref: 'Comment' }]
 })
 
 module.exports = mongoose.model('Post', schema)
