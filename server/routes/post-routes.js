@@ -41,7 +41,7 @@ router.post('/api/posts', (req, res, next)=>{
 
 router.put('/api/posts/:id', (req, res, next)=>{
     var action = 'Update Post'
-    Orders.findByIdAndUpdate(req.params.id, req.body)
+    Posts.findByIdAndUpdate(req.params.id, req.body)
         .then(data=>{
             res.send(data)
         })
@@ -52,7 +52,7 @@ router.put('/api/posts/:id', (req, res, next)=>{
 
 
 router.delete('/api/posts/:id', (req, res, next)=>{
-    Orders.findByIdAndRemove(req.params.id)
+    Posts.findByIdAndRemove(req.params.id)
         .then(()=>{
             res.send({message: 'So much for that post'})
         })
