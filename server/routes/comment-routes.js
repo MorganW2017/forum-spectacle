@@ -1,18 +1,18 @@
-var Posts = require('../models/post')
+var Comments = require('../models/comment')
 var router = require('express').Router()
 
 
-router.get('/api/posts', (req, res, next)=>{
+router.get('/api/posts/:id/comments', (req, res, next)=>{
     Posts.find({})
-        .then(orders =>{
-            res.send(orders)
+        .then(comments =>{
+            res.send(comments)
         })
         .catch(err =>{
             res.status(400).send({Error: err})
         })
 })
 
-router.get('/api/posts/:id', (req, res, next)=>{
+router.get('/api/posts/:id/comments/:id', (req, res, next)=>{
     Orders.findById(req.params.id)
         .populate('comments')
         .then(post=>{
@@ -23,7 +23,7 @@ router.get('/api/posts/:id', (req, res, next)=>{
         })
 })
 
-router.post('/api/posts', (req, res, next)=>{
+router.post('/api/posts/:id', (req, res, next)=>{
     req.body.userId = req.session.uid
     Posts.create(req.body)
         .then(post => {
