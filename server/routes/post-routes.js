@@ -4,8 +4,8 @@ var router = require('express').Router()
 
 router.get('/api/posts', (req, res, next)=>{
     Posts.find({})
-        .then(orders =>{
-            res.send(orders)
+        .then(posts =>{
+            res.send(posts)
         })
         .catch(err =>{
             res.status(400).send({Error: err})
@@ -13,7 +13,7 @@ router.get('/api/posts', (req, res, next)=>{
 })
 
 router.get('/api/posts/:id', (req, res, next)=>{
-    Orders.findById(req.params.id)
+    Posts.findById(req.params.id)
         .populate('comments')
         .then(post=>{
             res.send(post)
