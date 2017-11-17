@@ -1,11 +1,9 @@
 var mongoose = require('mongoose')
 
-var schema = new Schema({
-  title: {type: string, required: true},
-  description: {type: string, required: true},
-  created: {type: num, defualt: Date.now()}
-//   votes: {type: num, default: 0},
-//   health: {type: num, default: 100}
+var schema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  created: { type: Number, defualt: Date.now() },
 })
 
 module.exports = mongoose.model('Post', schema)
