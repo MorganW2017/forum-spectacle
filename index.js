@@ -1,6 +1,7 @@
 var express = require('express')
 var server = express()
 var bp = require('body-parser')
+var dbConnect = require('./config/mlab/mlab-config')
 var port = 9001
 
 var userRoutes = require('./auth/auth')
