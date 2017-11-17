@@ -3,7 +3,7 @@ var router = require('express').Router()
 
 
 router.get('/api/posts/:id/comments', (req, res, next)=>{
-    Posts.find({})
+    Comments.find({})
         .then(comments =>{
             res.send(comments)
         })
@@ -13,23 +13,23 @@ router.get('/api/posts/:id/comments', (req, res, next)=>{
 })
 
 router.get('/api/posts/:id/comments/:id', (req, res, next)=>{
-    Orders.findById(req.params.id)
+    Comments.findById(req.params.id)
         .populate('comments')
-        .then(post=>{
-            res.send(post)
+        .then(comment=>{
+            res.send(comment)
         })
         .catch(err =>{
             res.status(400).send({Error: err})
         })
 })
 
-router.post('/api/posts/:id', (req, res, next)=>{
+router.post('/api/posts/:id/comments', (req, res, next)=>{
     req.body.userId = req.session.uid
-    Posts.create(req.body)
-        .then(post => {
+    Comments.create(req.body)
+        .then(comment => {
             let response = {
-                data: post,
-                message: 'Successfully created Post!'
+                data: comment,
+                message: 'Successfully created Comment!'
             }
             res.send(response)
         })
@@ -39,9 +39,9 @@ router.post('/api/posts/:id', (req, res, next)=>{
 })
 
 
-router.put('/api/posts/:id', (req, res, next)=>{
-    var action = 'Update Post'
-    Orders.findByIdAndUpdate(req.params.id, req.body)
+router.put('/api/posts/:id/comments/:id', (req, res, next)=>{
+    var action = 'Update Comment'
+    Comments.findByIdAndUpdate(req.params.id, req.body)
         .then(data=>{
             res.send(data)
         })
@@ -51,10 +51,10 @@ router.put('/api/posts/:id', (req, res, next)=>{
 })
 
 
-router.delete('/api/posts/:id', (req, res, next)=>{
-    Orders.findByIdAndRemove(req.params.id)
+router.delete('/api/posts/:id/comments/:id', (req, res, next)=>{
+    Comments.findByIdAndRemove(req.params.id)
         .then(()=>{
-            res.send({message: 'So much for that post'})
+            res.send({message: 'So much for that comment'})
         })
         .catch(err =>{
             res.status(400).send({Error: err})
