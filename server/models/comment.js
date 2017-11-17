@@ -1,10 +1,11 @@
 var mongoose = require('mongoose')
 
-var schema = new Schema({
-  body: {type: string, required: true},
-  votes: {type: num, default: 0},
-  health: {type: num, default: 100},
-  created: {type: num, defualt: Date.now()}  
+var schema = new mongoose.Schema({
+  body: {type: String, required: true},
+  votes: {type: Number, default: 0},
+  health: {type: Number, default: 100},
+  alive: {type: Boolean, default: true},
+  created: {type: Number, defualt: Date.now()}  
 })
 
 module.exports = mongoose.model('Comment', schema)
