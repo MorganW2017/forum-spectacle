@@ -1,5 +1,8 @@
 var app = {
     controllers:{
-        forumController: new forumController(),
+        postController: new PostController()
+        // commentController: new CommentController(),
+        // signupController: new SignupController(),
+        // loginController: new LoginController()
     }
 }
