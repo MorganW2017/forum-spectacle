@@ -14,7 +14,7 @@ router.post('/register', (req, res) => {
       })
     })
     .catch(err => {
-      res.send({ error: err })
+      res.send({ error: 'Email already in use'})
     })
 })
 
