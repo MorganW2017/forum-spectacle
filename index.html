@@ -10,7 +10,8 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    
 </head>
 
 <body>
@@ -25,15 +26,17 @@
                     <button type="onsubmit">Search</button>
                 </form>
             </div>
-            <div class="col-sm-5 ilb">
-                <form onsubmit="loginfunction(FINISH)" class="form-group">
-                    <input type="text" name="user-name" class="input-field login-field" placeholder="User Name">
-                    <input type="text" name="password" class="input-field login-field" placeholder="Password">
+
+            <div class="col-sm-4 ilb">
+
+                <form onsubmit="app.controllers.forumController.loginFunction(event)" class="form-group">
+                    <input type="text" name="user-name" class="input-field" id="user-name-field" placeholder="User Name">
+                    <input type="text" name="password" class="input-field" placeholder="Password">
                     <button type="onsubmit">Login</button>
                 </form>
             </div>
             <div class="col-sm-1 ilb">
-                <button class="sign-up-button" onclick="signupfunction(FINISH)">Sign up</button>
+                <button class="sign-up-button" onclick="app.controllers.forumController.signupFunction(event)">Sign up</button>
             </div>
         </div>
         <div class="create-post">
