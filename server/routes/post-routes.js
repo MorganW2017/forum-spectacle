@@ -58,7 +58,7 @@ router.put('/api/posts/:id', (req, res, next)=>{
 router.delete('/api/posts/:id', (req, res, next)=>{
     Posts.findById(req.params.id)
         .then((post)=>{
-            if(post.creatorId != req.session.uid){
+            if(post.creatorId.toString() != req.session.uid){
                 return res.status(401).send('UNAUTHORIZED')
             }
             post.remove()
