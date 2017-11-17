@@ -1,0 +1,65 @@
+.search-field {
+  width: 300px;
+}
+
+.login-field {
+  width: 150px;
+}
+
+.comment-field {
+  width: 748.66px;
+  height: 100px;
+}
+
+body {
+  background: lightgray;
+}
+
+.ilb {
+  display: inline-block;
+}
+
+.il {
+  display: inline;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.p-t-10 {
+  padding-bottom: 25px;
+}
+
+h4 {
+  display: inline;
+  clear: none;
+}
+
+.p-l-30 {
+  padding-left: 30px;
+}
+
+.p-l-10 {
+  padding-left: 10px;
+}
+
+.trash-star {
+  font-size: 2rem;
+}
+
+.spacer {
+  margin-bottom: px;
+}
+
+.outline {
+  outline: 2px, solid, red;
+}
+
+.vote-counts {
+  float: right;
+}
+
+.vote-size {
+  font-size: 5rem;
+}
