@@ -58,7 +58,6 @@ router.put('/api/users/:id', (req, res, next) => {
         })
 })
 
-
 router.delete('/api/users/:id', (req, res, next) => {
     Users.findById(req.params.id)
         .then((user) => {
