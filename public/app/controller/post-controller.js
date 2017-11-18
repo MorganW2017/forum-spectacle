@@ -7,10 +7,10 @@ function PostController() {
         postService.getPosts(drawPosts)
     }
     function drawPosts(posts) {
-        var postElem = document.getElementById('postId')
+        var postElem = document.getElementById('postBody')
         var template = ''
         for (let i = 0; i < posts.length; i++) {
-            const post = posts[i];
+            var post = posts[i];
             console.log(`${specialSentence(post.description)}`)
             template += `
             <div class="panel panel-default text-center spacer">

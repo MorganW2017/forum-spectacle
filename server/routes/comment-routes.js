@@ -25,7 +25,7 @@ router.get('/api/posts/:id/comments/:id', (req, res, next) => {
 
 router.post('/api/posts/:id/comments', (req, res, next) => {
     req.body.creatorId = req.session.uid
-    req.body.postId = req.session.uid
+    req.body.postId = req.params.id
     if (!req.session.uid) {
         return res.status(401).send("Please login to comment.")
     }

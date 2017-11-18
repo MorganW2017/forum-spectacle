@@ -20,6 +20,7 @@ function CommentService() {
         $.get(baseUrl)
             .then(res => {
                 comments = res
+                console.log(comments)
                 cb(comments, postId)
             })
             .fail(logError)
