@@ -63,3 +63,7 @@ h4 {
 .vote-size {
   font-size: 5rem;
 }
+.reverse{
+  display: flex !important;
+  flex-direction: column-reverse !important;
+}
