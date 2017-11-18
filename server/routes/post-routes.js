@@ -38,7 +38,7 @@ router.post('/api/posts', (req, res, next) => {
             res.send(response)
         })
         .catch(err => {
-            res.status(400).send({ Error: err })
+            res.status(400).send({ Error: "Please login to create post." })
         })
 })
 
