@@ -29,7 +29,7 @@ function PostController(){
     this.addPost = function addPost(event){
         event.preventDefault()
         var post = event.target
-        postService.addPost(post, getPosts)
+            postService.addPost(post, getPosts)
     }
     this.deletePost = function deletePost(index){
         postService.deletePost(index, getPosts)
