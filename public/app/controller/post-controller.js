@@ -7,7 +7,6 @@ function PostController(){
     function drawPosts(posts){
         var postElem = document.getElementById('postId')
         var template = ''
-        debugger
         for (let i = 0; i < posts.length; i++) {
             const post = posts[i];
             template += `
@@ -17,9 +16,10 @@ function PostController(){
             <div class="comment-tracker">
                 <h4 style="display:inline">Alive: 12</h4>
                 <h4 style="display:inline">Dead: 3</h4>
-                <button onsubmit="app.controllers.postController.showComments(event)">Comments</button>
+                <button onclick="app.controllers.commentController.getComments('${post._id}')">Comments</button>
                 <i class=" fa fa-trash ilb pull-right" onclick="app.controllers.postController.deletePost('${post._id}')"></i>
             </div>
+            <div id="${post._id}"><div>
         </div>
             `
             
@@ -39,12 +39,6 @@ function PostController(){
         var search = event.target
 
         postService.searchPosts()
-    }
-
-    this.showComments = function showComments(e){
-        e.preventDefault()
-        
-
     }
 
     getPosts()

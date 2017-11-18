@@ -2,20 +2,23 @@ function CommentController() {
     var postService = new PostService()
     var commentService = new CommentService()
 
-    function getComments() {
-        postService.getActivePost(postId)
-        commentService.getComments(drawComments)
+    this.getComments= function getComments(postId) {
+        commentService.getComments(drawComments, postId)
     }
-    function drawComments(comments) {
-        var commentElem = document.getElementById('commentId')
+    // function getComment(){
+    //     commentService.getComment()
+    // }
+    function drawComments(comments, postId) {
+        var commentElem = document.getElementById(postId)
         template = ''
         for (let i = 0; i < comments.length; i++) {
             const comment = comments[i];
             template += `
                 <div class="panel panel-default spacer">
-                    <div class="row"
-                        <div class="col-sm-1 character"
-                            <h1>${comment.health}</h1>
+                    <div class="row">
+                        <div class="col-sm-1 character">
+                            <img src="//placehold.it/100x100">
+                            <h5>${comment.health}</h5>
                             <h5>${comment.votes}</h5>
                         </div>
                 <div class="col-sm-8 comment-body">
@@ -24,7 +27,7 @@ function CommentController() {
                 <div class="col-sm-3">
                     <div class="up-votes ">
                         <i class="fa fa-arrow-up vote-size il"></i>
-                        h5 class="il vote-size">${comment.upVotes}</h5>
+                        <h5 class="il vote-size">${comment.upVotes}</h5>
                     </div>
                     <div class="down-votes">
                         <i class="fa fa-arrow-down vote-size il"></i>
@@ -49,7 +52,7 @@ function CommentController() {
         commentService.addComment(comment, getComments)
     }
 
-    getComments()
+
 
 }
 

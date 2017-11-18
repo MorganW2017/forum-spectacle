@@ -16,8 +16,16 @@ function CommentService() {
         console.error(err)
     }
 
-    this.getComments = function getComments(cb) {
+    this.getComments = function getComments(cb, postId) {
         $.get(baseUrl)
+            .then(res => {
+                comments = res
+                cb(comments, postId)
+            })
+            .fail(logError)
+    }
+    this.getComment = function getComment(id) {
+        $.get(baseUrl + "/" + id)
             .then(res => {
                 comments = res
                 cb(comments)
