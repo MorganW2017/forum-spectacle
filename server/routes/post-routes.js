@@ -45,11 +45,12 @@ router.post('/api/posts', (req, res, next) => {
 
 router.put('/api/posts/:id', (req, res, next) => {
     var action = 'Update Post'
-    Posts.findByIdAndUpdate(req.params.id, req.body)
+    Posts.findById(req.params.id, req.body)
         .then(data => {
-            if (post.creatorId.toString() != req.session.uid) {
+            if (data.creatorId.toString() != req.session.uid) {
                 return res.status(401).send('UNAUTHORIZED')
             }
+            data.put()
             res.send(data)
         })
         .catch(err => {
