@@ -25,12 +25,12 @@ router.get('/api/posts/:id', (req, res, next) => {
 
 router.post('/api/posts', (req, res, next) => {
     req.body.creatorId = req.session.uid
+    if (!req.session.uid) {
+        return res.status(401).send("Please login to create post.")
+    }
 
     Posts.create(req.body)
         .then(post => {
-            if (!req.session.uid) {
-                return res.status(401).send("Please login to create post.")
-            }
             let response = {
                 data: post,
                 message: 'Successfully created Post!'
@@ -45,11 +45,11 @@ router.post('/api/posts', (req, res, next) => {
 
 router.put('/api/posts/:id', (req, res, next) => {
     var action = 'Update Post'
+    if (data.creatorId.toString() != req.session.uid) {
+        return res.status(401).send('UNAUTHORIZED')
+    }
     Posts.findById(req.params.id, req.body)
         .then(data => {
-            if (data.creatorId.toString() != req.session.uid) {
-                return res.status(401).send('UNAUTHORIZED')
-            }
             data.put()
             res.send(data)
         })

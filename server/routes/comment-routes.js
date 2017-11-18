@@ -26,11 +26,11 @@ router.get('/api/posts/:id/comments/:id', (req, res, next) => {
 router.post('/api/posts/:id/comments', (req, res, next) => {
     req.body.creatorId = req.session.uid
     req.body.postId = req.session.uid
+    if (!req.session.uid) {
+        return res.status(401).send("Please login to comment.")
+    }
     Comments.create(req.body)
         .then(comment => {
-            if (!req.session.uid) {
-                return res.status(401).send("Please login to comment.")
-            }
             let response = {
                 data: comment,
                 message: 'Successfully created Comment!'
@@ -45,11 +45,11 @@ router.post('/api/posts/:id/comments', (req, res, next) => {
 
 router.put('/api/posts/:id/comments/:id', (req, res, next) => {
     var action = 'Update Comment'
+    if (comment.creatorId.toString() != req.session.uid) {
+        return res.status(401).send('UNAUTHORIZED')
+    }
     Comments.findById(req.params.id, req.body)
         .then(data => {
-            if (comment.creatorId.toString() != req.session.uid) {
-                return res.status(401).send('UNAUTHORIZED')
-            }
             comment.put()
             res.send(data)
         })

@@ -1,5 +1,5 @@
 function CommentService() {
-    var baseUrl = 'http://localhost:9001/api/comments'
+    var baseUrl = 'http://localhost:9001/api/posts/:id/comments'
     var replies = []
 
     function Comment(config) {
