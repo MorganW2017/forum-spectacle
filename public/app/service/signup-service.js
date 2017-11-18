@@ -13,7 +13,6 @@ function SignupService(){
 
     this.userSignup = function userSignup(signupForm){
         var newSignup = new Signup(signupForm)
-        debugger
         $.post(baseUrl, newSignup)
             .then(res => console.log(res))
             .fail(logError)

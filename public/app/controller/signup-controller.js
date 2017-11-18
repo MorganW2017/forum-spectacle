@@ -14,7 +14,7 @@ function SignupController(){
     this.showSignupForm = function showSignupForm(){
         if(signupFormstate){
             showSignupButton.innerText = 'Register'
-            showSignupButton.className = 'btn btn-info'
+            showSignupButton.className = 'btn btn-warning'
             signupFormElem.classList.add('hidden')
             signupFormstate = false
         }else{

@@ -17,50 +17,52 @@
             <div class="col-sm-2 ilb">
                 <img src="//placehold.it/90x50" alt="">
             </div>
-            <div class="col-sm-4 ilb">
+            <div class="col-sm-2 ilb">
                 <form onsubmit="app.controllers.postController.searchPosts(event)">
                     <input type="text" class="search-field" name="search" placeholder="Search Posts">
                     <button type="onsubmit">Search</button>
                 </form>
             </div>
-            <div class="col-sm-6 ilb">
+            <div class="col-sm-4 ilb">
                 <div class="row">
                     <div class="col-sm-4" id="show-login-form">
-                        <button id="show-button" class="btn btn-info hit" onclick="app.controllers.loginController.showLoginForm()">Login</button>
+                        <button id="show-button" class="btn btn-info" onclick="app.controllers.loginController.showLoginForm()">Login</button>
                     </div>
                     <div class="col-sm-4" id="show-signup-form">
-                        <button id="show-signup-button" class="btn btn-info hit" onclick="app.controllers.signupController.showSignupForm()">Signup</button>
+                        <button id="show-signup-button" class="btn btn-warning" onclick="app.controllers.signupController.showSignupForm()">Register</button>
                     </div>
                     <div class="col-sm-4">
                         <button class="log-out-button btn btn-danger" onclick="app.controllers.loginController.userLogout()">Logout</button>
                     </div>
                 </div>
             </div>
+            <div class="col-sm-4">
+                <div class="create-post">
+                    <form onsubmit="app.controllers.postController.addPost(event)">
+                        <input type="text" name="title" placeholder="Post Title">
+                        <input type="text" name="description" placeholder="Create Post">
+                        <button type="onsubmit">Create Post</button>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 ilb hidden" id="add-login-form">
+            <div class="col-sm-5 ilb hidden" id="add-login-form">
                 <form onsubmit="app.controllers.loginController.userLogin(event)" class="form-group">
                     <input type="text" name="email" class="input-field" placeholder="Email">
                     <input type="password" name="password" class="input-field" placeholder="Password">
                     <button type="onsubmit">Login</button>
                 </form>
             </div>
-            <div class="col-sm-6 ilb hidden" id="add-signup-form">
+            <div class="col-sm-7 ilb hidden" id="add-signup-form">
                 <form onsubmit="app.controllers.signupController.userSignup(event)" class="form-group">
                     <input type="text" name="email" class="input-field" placeholder="Email">
                     <input type="text" name="name" class="input-field" id="user-name-field" placeholder="username">
                     <input type="password" name="password" class="input-field" placeholder="Password">
-                    <button type="onsubmit">Signup</button>
+                    <button type="onsubmit">Register</button>
                 </form>
             </div>
 
-        </div>
-        <div class="create-post">
-            <form onsubmit="app.controllers.postController.addPost(event)">
-                <input type="text" name="title" placeholder="Post Title">
-                <input type="text" name="description" placeholder="Create Post">
-                <button type="onsubmit">Create Post</button>
-            </form>
         </div>
         <div class="reverse" id="postId"></div>
     </div>
