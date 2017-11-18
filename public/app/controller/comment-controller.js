@@ -22,16 +22,16 @@ function CommentController() {
                         </div>
                         <div class="col-sm-2">
                             <div class="up-votes ">
-                                <i class="fa fa-arrow-up vote-size il" onclick="app.controllers.commentController.upvote()"></i>
+                                <i class="fa fa-arrow-up vote-size il" onclick="app.controllers.commentController.updateVote()"></i>
                                 <h5 class="il vote-size">${comment.upVotes}</h5>
                             </div>
+                            <div class="down-votes">
+                                <i class="fa fa-arrow-down vote-size il" onclick="app.controllers.commentController.updateVote()"></i>
+                                <h5 class="il vote-size">${comment.downVotes}</h5>
+                            </div>
                         </div>    
-                        <div class="down-votes">
-                            <i class="fa fa-arrow-down vote-size il onclick="app.controllers.commentController.downvote()"></i>
-                            <h5 class="il vote-size">${comment.downVotes}</h5>
-                        </div>
-                        <div class="trash-star pull-right pull-bottom">
-                            <i class=" fa fa-trash ilb" onclick="app.controllers.commentController.deleteComment('${comment.postId}','${comment._id}')"></i>
+                        <div class="trash-star pull-bottom">
+                            <i class="fa fa-trash ilb" onclick="app.controllers.commentController.deleteComment('${comment.postId}','${comment._id}')"></i>
                         </div>           
                     </div>
                 </div>
@@ -52,6 +52,9 @@ function CommentController() {
     }
     this.deleteComment = function deleteComment(postId, commentId) {
         commentService.deleteComment(postId, commentId, this.getComments)
+    }
+    this.updateVote = function updateVote(){
+        commentService.updateVote()
     }
 }
 

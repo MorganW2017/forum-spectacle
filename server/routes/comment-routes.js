@@ -58,6 +58,21 @@ router.put('/api/posts/:id/comments/:id', (req, res, next) => {
         })
 })
 
+router.put('/api/posts/:id/comments/:id', (req, res, next) => {
+    var action = 'Update Vote'
+    if (comment.creatorId.toString() != req.session.uid) {
+        return res.status(401).send('UNAUTHORIZED')
+    }
+    Comments.findById(req.params.id, req.body)
+        .then(data => {
+            comment.put()
+            res.send(data)
+        })
+        .catch(err => {
+            res.status(400).send(err)
+        })
+})
+
 
 router.delete('/api/posts/:postid/comments/:id', (req, res, next) => {
     Comments.findOneAndRemove({creatorId: req.session.uid, _id: req.params.id})
