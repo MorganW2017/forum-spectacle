@@ -27,13 +27,33 @@
             <div class="col-sm-4 ilb">
                 <div class="row">
                     <div class="col-sm-4" id="show-login-form">
-                        <button id="show-button" class="btn btn-info" onclick="app.controllers.loginController.showLoginForm()">Login</button>
+                        <a>
+                            <button id="show-button" class="btn btn-info" onclick="app.controllers.loginController.showLoginForm()">Login</button>
+                            <span class="line -right"></span>
+                            <span class="line -top"></span>
+                            <span class="line -left"></span>
+                            <span class="line -bottom"></span>
+                        </a>
                     </div>
                     <div class="col-sm-4" id="show-signup-form">
-                        <button id="show-signup-button" class="btn btn-warning" onclick="app.controllers.signupController.showSignupForm()">Register</button>
+                        <a>
+                            <span class="text">
+                                <button id="show-signup-button" class="btn btn-warning" onclick="app.controllers.signupController.showSignupForm()">Register</button>
+                            </span>
+                            <span class="line -right"></span>
+                            <span class="line -top"></span>
+                            <span class="line -left"></span>
+                            <span class="line -bottom"></span>
+                        </a>
                     </div>
                     <div class="col-sm-4">
-                        <button class="log-out-button btn btn-danger" onclick="app.controllers.loginController.userLogout()">Logout</button>
+                        <a>
+                            <button class="log-out-button btn btn-danger" onclick="app.controllers.loginController.userLogout()">Logout</button>
+                            <span class="line -right"></span>
+                            <span class="line -top"></span>
+                            <span class="line -left"></span>
+                            <span class="line -bottom"></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -57,7 +77,7 @@
             </div>
             <div class="col-sm-7 ilb hidden" id="add-signup-form">
                 <form onsubmit="app.controllers.signupController.userSignup(event)" class="form-group">
-                        <input type="text" name="email" class="input-field" placeholder="Email">
+                    <input type="text" name="email" class="input-field" placeholder="Email">
                     <input type="text" name="name" class="input-field" id="user-name-field" placeholder="username">
                     <input type="password" name="password" class="input-field" placeholder="Password">
                     <button type="onsubmit">Register</button>
