@@ -16,9 +16,10 @@ function PostController(){
             <div class="comment-tracker">
                 <h4 style="display:inline">Alive: 12</h4>
                 <h4 style="display:inline">Dead: 3</h4>
-                <button onsubmit="app.controllers.postController.showComments(event)">Comments</button>
+                <button onclick="app.controllers.commentController.getComments('${post._id}')">Comments</button>
                 <i class=" fa fa-trash ilb pull-right" onclick="app.controllers.postController.deletePost('${post._id}')"></i>
             </div>
+            <div id="${post._id}"><div>
         </div>
             `
             
@@ -39,10 +40,13 @@ function PostController(){
         postService.searchPosts(search, drawPosts)
     }
 
+<<<<<<< HEAD
     this.showComments = function showComments(e){
         e.preventDefault()
     }
 
+=======
+>>>>>>> 7bb9710dface6d8c9c53be7dadb7b9f90fc5000e
     getPosts()
 
 }
