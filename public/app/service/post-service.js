@@ -14,11 +14,7 @@ function PostService() {
     this.searchPosts = function searchPosts(search, cb) {
         $.get(baseUrl)
             .then(res => {
-                var posts = res.filter(post => {
-                    if (post.title.toLowerCase().includes(search.toLowerCase())) {
-                        return true
-                    }
-                })
+                var posts = res.filter(post => post.title.toLowerCase().includes(search.toLowerCase())) 
                 cb(posts)
             })
             .fail(logError)

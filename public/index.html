@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
     <div class="container outline">
         <div class="row logo outline">
@@ -21,20 +23,29 @@
                     <button type="onsubmit">Search</button>
                 </form>
             </div>
-            <div class="col-sm-4 col-sm-offset-6" id="show-login-form">
-                <button id="show-button" class="btn btn-info hit" onclick="app.controllers.loginController.showLoginForm()">Login</button>
+            <div class="col-sm-6 ilb">
+                <div class="row">
+                    <div class="col-sm-4" id="show-login-form">
+                        <button id="show-button" class="btn btn-info hit" onclick="app.controllers.loginController.showLoginForm()">Login</button>
+                    </div>
+                    <div class="col-sm-4" id="show-signup-form">
+                        <button id="show-signup-button" class="btn btn-info hit" onclick="app.controllers.signupController.showSignupForm()">Signup</button>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="log-out-button btn btn-danger" onclick="app.controllers.loginController.userLogout()">Logout</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-4 ilb hidden" id="add-login-form">
+        </div>
+        <div class="row">
+            <div class="col-sm-6 ilb hidden" id="add-login-form">
                 <form onsubmit="app.controllers.loginController.userLogin(event)" class="form-group">
                     <input type="text" name="email" class="input-field" placeholder="Email">
                     <input type="password" name="password" class="input-field" placeholder="Password">
                     <button type="onsubmit">Login</button>
                 </form>
             </div>
-            <div class="col-sm-4 col-sm-offset-6" id="show-signup-form">
-                <button id="show-signup-button" class="btn btn-info hit" onclick="app.controllers.signupController.showSignupForm()">Signup</button>
-            </div>
-            <div class="col-sm-4 ilb hidden" id="add-signup-form">
+            <div class="col-sm-6 ilb hidden" id="add-signup-form">
                 <form onsubmit="app.controllers.signupController.userSignup(event)" class="form-group">
                     <input type="text" name="email" class="input-field" placeholder="Email">
                     <input type="text" name="name" class="input-field" id="user-name-field" placeholder="username">
@@ -42,9 +53,7 @@
                     <button type="onsubmit">Signup</button>
                 </form>
             </div>
-            <div class="col-sm-1">
-                <button class="log-out-button btn btn-danger" onclick="app.controllers.loginController.userLogout()">Logout</button>
-            </div>
+
         </div>
         <div class="create-post">
             <form onsubmit="app.controllers.postController.addPost(event)">
@@ -53,7 +62,7 @@
                 <button type="onsubmit">Create Post</button>
             </form>
         </div>
-        <div class="reverse" id="postId"></div>  
+        <div class="reverse" id="postId"></div>
     </div>
 
     <!-- EXTERNAL LIBRARIES -->
