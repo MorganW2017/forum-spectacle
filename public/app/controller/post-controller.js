@@ -7,7 +7,6 @@ function PostController(){
     function drawPosts(posts){
         var postElem = document.getElementById('postId')
         var template = ''
-        debugger
         for (let i = 0; i < posts.length; i++) {
             const post = posts[i];
             template += `
@@ -42,8 +41,6 @@ function PostController(){
 
     this.showComments = function showComments(e){
         e.preventDefault()
-        
-
     }
 
     getPosts()
