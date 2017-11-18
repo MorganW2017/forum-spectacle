@@ -40,13 +40,6 @@ function PostController(){
         postService.searchPosts(search, drawPosts)
     }
 
-<<<<<<< HEAD
-    this.showComments = function showComments(e){
-        e.preventDefault()
-    }
-
-=======
->>>>>>> 7bb9710dface6d8c9c53be7dadb7b9f90fc5000e
     getPosts()
 
 }
