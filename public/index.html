@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/style.css">    
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
@@ -24,11 +24,9 @@
                     <button type="onsubmit">Search</button>
                 </form>
             </div>
-
-            <div class="col-sm-4 ilb">
-
-                <form onsubmit="app.controllers.loginController.loginFunction(event)" class="form-group">
-                    <input type="text" name="user-name" class="input-field" id="user-name-field" placeholder="User Name">
+            <div class="col-sm-4 ilb" id="show-login-form">
+                <form onsubmit="app.controllers.loginController.userLogin(event)" class="form-group">
+                    <input type="text" name="email" class="input-field" id="user-name-field" placeholder="Email">
                     <input type="text" name="password" class="input-field" placeholder="Password">
                     <button type="onsubmit">Login</button>
                 </form>
@@ -210,8 +208,13 @@
         </div> -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script src="app/service/post-service.js"></script>
+    <script src="app/service/login-service.js"></script>
+
+    <script src="app/controller/login-controller.js"></script>
     <script src="app/controller/post-controller.js"></script>
+
     <script src="app/init.js"></script>
 </body>
 

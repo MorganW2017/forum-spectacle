@@ -1,8 +1,8 @@
 var app = {
     controllers:{
-        postController: new PostController()
+        postController: new PostController(),
+        loginController: new LoginController()
         // commentController: new CommentController(),
         // signupController: new SignupController(),
-        // loginController: new LoginController()
     }
 }
