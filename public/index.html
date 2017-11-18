@@ -21,7 +21,7 @@
                     <button type="onsubmit">Search</button>
                 </form>
             </div>
-            <div class="col-sm-4 col-sm-offset-3" id="show-login-form">
+            <div class="col-sm-4 col-sm-offset-6" id="show-login-form">
                 <button id="show-button" class="btn btn-info hit" onclick="app.controllers.loginController.showLoginForm()">Login</button>
             </div>
             <div class="col-sm-4 ilb hidden" id="add-login-form">
@@ -33,6 +33,9 @@
             </div>
             <div class="col-sm-1 ilb">
                 <button class="sign-up-button" onclick="app.controllers.signupController.signupFunction(event)">Sign up</button>
+            </div>
+            <div class="col-sm-1">
+                <button class="log-out-button btn btn-danger" onclick="app.controllers.loginController.userLogout()">Logout</button>
             </div>
         </div>
         <div class="create-post">

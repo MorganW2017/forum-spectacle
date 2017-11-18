@@ -18,20 +18,13 @@ function LoginController(){
             loginFormElem.classList.add('hidden')
             formstate = false
         }else{
-            showButton.innerText = 'Logout'
-            showButton.onclick = app.controllers.loginController.userLogout(event)
-            console.log(showButton.onclick)
-            showButton.className = 'btn btn-warning'
             loginFormElem.classList.remove('hidden')
             formstate = true
         }
     }
 
-    this.userLogout = function userLogout(event){
-        event.preventDefault()
-        var logoutForm = event.target
-        loginService.userLogin(logoutForm)
-        loginFormElem.classList.toggle('hidden', true)
+    this.userLogout = function userLogout(){
+        loginService.userLogout()
     }
 
 }

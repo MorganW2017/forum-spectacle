@@ -17,9 +17,12 @@ function LoginService(){
             .then(res => console.log(res))
             .fail(logError)
     }
-    this.userLogout = function userLogout(logoutForm){
-        $.delete(baseUrl2)
-            .then(res => console.log(res))
-            .fail(logError)
+    this.userLogout = function userLogout(){
+        $.ajax({
+            url: baseUrl2,
+            method: 'DELETE'
+        })
+        .then(res => console.log(res))
+        .fail(logError)
     }
 }
