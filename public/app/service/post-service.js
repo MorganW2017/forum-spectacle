@@ -32,19 +32,7 @@ function PostService() {
             })
             .fail(logError)
     }
-<<<<<<< HEAD
     this.addPost = function addPosts(post, getPosts) {
-=======
-    this.getActivePost = function getActivePost(cb){
-        $.get(baseUrl + "/" + postId)
-            .then(res =>{
-                posts = res
-                cb(posts)
-            })
-            .fail(logError)
-    }
-    this.addPost = function addPosts(post, getPosts){
->>>>>>> a25f9184734e34a03e40fffb21cc87130b74e1a7
         var newPost = new Post(post)
         $.post(baseUrl, newPost)
             .then(getPosts)
