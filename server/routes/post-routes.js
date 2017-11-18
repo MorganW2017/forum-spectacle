@@ -28,7 +28,6 @@ router.post('/api/posts', (req, res, next) => {
     if (!req.session.uid) {
         return res.status(401).send("Please login to create post.")
     }
-
     Posts.create(req.body)
         .then(post => {
             let response = {

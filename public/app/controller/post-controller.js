@@ -17,10 +17,8 @@ function PostController(){
             <div class="comment-tracker">
                 <h4 style="display:inline">Alive: 12</h4>
                 <h4 style="display:inline">Dead: 3</h4>
-                <button onclick="app.controllers.postController.showComments(event)">Comments</button>
-            </div>
-            <div class="commentId">
-
+                <button onsubmit="app.controllers.postController.showComments(event)">Comments</button>
+                <i class=" fa fa-trash ilb pull-right" onclick="app.controllers.postController.deletePost('${post._id}')"></i>
             </div>
         </div>
             `
@@ -32,6 +30,15 @@ function PostController(){
         event.preventDefault()
         var post = event.target
         postService.addPost(post, getPosts)
+    }
+    this.deletePost = function deletePost(index){
+        postService.deletePost(index, getPosts)
+    }
+    this.searchPosts = function searchPosts(event){
+        event.preventDefault()
+        var search = event.target
+
+        postService.searchPosts()
     }
 
     this.showComments = function showComments(e){

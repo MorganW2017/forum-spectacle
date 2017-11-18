@@ -34,6 +34,13 @@ function PostService(){
             .then(getPosts)
             .fail(logError)
     }
-    
-        
+    this.deletePost = function deletePost(index, getPosts){
+        $.ajax({
+            url: baseUrl + '/' + index,
+            method: 'DELETE'
+        })
+        .then(getPosts)
+        .fail(logError)
     }
+        
+}
