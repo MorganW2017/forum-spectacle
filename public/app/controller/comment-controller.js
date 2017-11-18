@@ -1,7 +1,7 @@
 function CommentController() {
     var commentService = new CommentService()
     
-    this.getComments= function getComments(postId) {
+    this.getComments = function getComments(postId) {
         commentService.getComments(drawComments, postId)
     }
     function drawComments(comments, postId) {
@@ -12,10 +12,7 @@ function CommentController() {
             template += `
                 <div class="panel panel-default spacer">
                     <div class="row">
-                        <div class="col-sm-1">
-                            <button onclick="app.controllers.commentController.collapseComments('${comment.postId}')">Collapse</button>
-                        </div>
-                        <div class="col-sm-1 character">
+                        <div class="col-sm-2 character">
                             <img src="//placehold.it/100x100">
                             <h5>${comment.health}</h5>
                             <h5>${comment.votes}</h5>
@@ -34,7 +31,7 @@ function CommentController() {
                             <h5 class="il vote-size">${comment.downVotes}</h5>
                         </div>
                         <div class="trash-star pull-right pull-bottom">
-                            <i class=" fa fa-trash ilb" onclick="deletefunction(FINISH)"></i>
+                            <i class=" fa fa-trash ilb" onclick="app.controllers.commentController.deleteComment('${comment.postId}','${comment._id}')"></i>
                         </div>           
                     </div>
                 </div>
@@ -51,11 +48,11 @@ function CommentController() {
     this.addComment = function addComment(event) {
         event.preventDefault()
         var comment = event.target
-        commentService.addComment(comment, getComments)
+        commentService.addComment(comment, this.getComments)
     }
-
-
-
+    this.deleteComment = function deleteComment(postId, commentId) {
+        commentService.deleteComment(postId, commentId, this.getComments)
+    }
 }
 
 

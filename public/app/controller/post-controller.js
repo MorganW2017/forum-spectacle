@@ -24,6 +24,7 @@ function PostController() {
                 <div class="panel-footer">
                     <div class="comment-tracker">
                         <button onclick="app.controllers.commentController.getComments('${post._id}')">Comments</button>
+                        <button onclick="app.controllers.commentController.collapseComments('${post._id}')">Collapse</button>                        
                         <i class=" fa fa-trash ilb pull-right" onclick="app.controllers.postController.deletePost('${post._id}')"></i>
                     </div>
                 </div>

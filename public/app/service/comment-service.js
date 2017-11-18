@@ -1,5 +1,6 @@
 function CommentService() {
     var baseUrl = 'http://localhost:9001/api/posts/:id/comments'
+    var baseUrl2 = 'http://localhost:9001/api/posts/'
     var replies = []
 
     function Comment(config) {
@@ -35,10 +36,19 @@ function CommentService() {
     }
     this.addComment = function addComments(comment, getComments) {
         var newComment = new Comment(comment)
-        $.comment(baseUrl, newComment)
-            .then(getComments)
+        $.post(baseUrl, newComment)
+            .then(getComments(comment.postId))
             .fail(logError)
     }
+    this.deleteComment = function deleteComment(postId, commentId, getComments) {
+        $.ajax({
+            url: baseUrl2 + postId + '/comments/' + commentId,
+            method: 'DELETE'
+        })
+            .then(getComments(postId))
+            .fail(logError)
+    }
+    
 
 
 }
