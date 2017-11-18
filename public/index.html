@@ -26,13 +26,21 @@
             </div>
             <div class="col-sm-4 ilb hidden" id="add-login-form">
                 <form onsubmit="app.controllers.loginController.userLogin(event)" class="form-group">
-                    <input type="text" name="email" class="input-field" id="user-name-field" placeholder="Email">
+                    <input type="text" name="email" class="input-field" placeholder="Email">
                     <input type="password" name="password" class="input-field" placeholder="Password">
                     <button type="onsubmit">Login</button>
                 </form>
             </div>
-            <div class="col-sm-1 ilb">
-                <button class="sign-up-button" onclick="app.controllers.signupController.signupFunction(event)">Sign up</button>
+            <div class="col-sm-4 col-sm-offset-6" id="show-signup-form">
+                <button id="show-signup-button" class="btn btn-info hit" onclick="app.controllers.signupController.showSignupForm()">Signup</button>
+            </div>
+            <div class="col-sm-4 ilb hidden" id="add-signup-form">
+                <form onsubmit="app.controllers.signupController.userSignup(event)" class="form-group">
+                    <input type="text" name="email" class="input-field" placeholder="Email">
+                    <input type="text" name="name" class="input-field" id="user-name-field" placeholder="username">
+                    <input type="password" name="password" class="input-field" placeholder="Password">
+                    <button type="onsubmit">Signup</button>
+                </form>
             </div>
             <div class="col-sm-1">
                 <button class="log-out-button btn btn-danger" onclick="app.controllers.loginController.userLogout()">Logout</button>
@@ -53,11 +61,13 @@
 
     <script src="app/service/post-service.js"></script>
     <script src="app/service/login-service.js"></script>
+    <script src="app/service/signup-service.js"></script>
     <!-- <script src="app/service/user-service.js"></script> -->
 
 
     <script src="app/controller/login-controller.js"></script>
     <script src="app/controller/post-controller.js"></script>
+    <script src="app/controller/signup-controller.js"></script>
     <!-- <script src="app/controller/user-controller.js"></script> -->
 
     <script src="app/init.js"></script>

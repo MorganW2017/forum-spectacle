@@ -4,6 +4,6 @@ var app = {
         loginController: new LoginController(),
         // userController: new UserController()
         // commentController: new CommentController(),
-        // signupController: new SignupController(),
+        signupController: new SignupController()
     }
 }
