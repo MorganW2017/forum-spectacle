@@ -22,11 +22,11 @@ function CommentController() {
                 <div class="col-sm-3">
                     <div class="up-votes ">
                         <i class="fa fa-arrow-up vote-size il"></i>
-                        h5 class="il vote-size">20</h5>
+                        h5 class="il vote-size">${comment.upVotes}</h5>
                     </div>
                     <div class="down-votes">
                         <i class="fa fa-arrow-down vote-size il"></i>
-                       <h5 class="il vote-size">90</h5>
+                       <h5 class="il vote-size">${comment.downVotes}</h5>
                     </div>
                     <div class="trash-star pull-right pull-bottom">
                     <i class=" fa fa-reply ilb" onclick="replyfunction(FINISH)"></i>
