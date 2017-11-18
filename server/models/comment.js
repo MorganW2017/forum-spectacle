@@ -11,7 +11,7 @@ var schema = new mongoose.Schema({
   alive: {type: Boolean, default: true},
   creatorId: {type: ObjectId, ref: 'User'},
   postId: {type: ObjectId, ref: 'Post'},
-  created: {type: Number, defualt: Date.now()}  
+  created: {type: Number, default: Date.now()}  
 })
 
 module.exports = mongoose.model('Comment', schema)

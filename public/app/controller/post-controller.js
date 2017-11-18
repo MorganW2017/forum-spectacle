@@ -6,7 +6,8 @@ function PostController(){
     }
     function drawPosts(posts){
         var postElem = document.getElementById('postId')
-        template = ''
+        var template = ''
+        debugger
         for (let i = 0; i < posts.length; i++) {
             const post = posts[i];
             template += `
@@ -37,6 +38,12 @@ function PostController(){
         event.preventDefault()
         var search = event.target.search.value
         postService.searchPosts(search, drawPosts)
+    }
+
+    this.showComments = function showComments(e){
+        e.preventDefault()
+        
+
     }
 
     getPosts()

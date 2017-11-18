@@ -45,11 +45,11 @@ router.get('/api/users/:id', (req, res, next) => {
 
 router.put('/api/users/:id', (req, res, next) => {
     var action = 'Update User'
+    if (data.creatorId.toString() != req.session.uid) {
+        return res.status(401).send('UNAUTHORIZED')
+    }
     Users.findById(req.params.id, req.body)
         .then(data => {
-            if (data.creatorId.toString() != req.session.uid) {
-                return res.status(401).send('UNAUTHORIZED')
-            }
             data.put()
             res.send(data)
         })

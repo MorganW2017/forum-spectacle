@@ -44,11 +44,11 @@ router.post('/api/posts', (req, res, next) => {
 
 router.put('/api/posts/:id', (req, res, next) => {
     var action = 'Update Post'
+    if (data.creatorId.toString() != req.session.uid) {
+        return res.status(401).send('UNAUTHORIZED')
+    }
     Posts.findById(req.params.id, req.body)
         .then(data => {
-            if (data.creatorId.toString() != req.session.uid) {
-                return res.status(401).send('UNAUTHORIZED')
-            }
             data.put()
             res.send(data)
         })

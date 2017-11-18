@@ -1,7 +1,9 @@
 function CommentController() {
+    var postService = new PostService()
     var commentService = new CommentService()
 
     function getComments() {
+        postService.getActivePost(postId)
         commentService.getComments(drawComments)
     }
     function drawComments(comments) {
