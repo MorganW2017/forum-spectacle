@@ -36,9 +36,8 @@ function PostController(){
     }
     this.searchPosts = function searchPosts(event){
         event.preventDefault()
-        var search = event.target
-
-        postService.searchPosts()
+        var search = event.target.search.value
+        postService.searchPosts(search, drawPosts)
     }
 
     getPosts()
