@@ -1,5 +1,13 @@
 body {
-  background: lightgray;
+  background-image: url("https://i.imgpile.com/494d46171e760eca73ecfe310277278c.jpg");
+  max-width: 100%;
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.avatar{
+  width: 90px;
+  justify-content: right;
 }
 
 .ilb {
