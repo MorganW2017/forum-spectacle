@@ -13,7 +13,8 @@ function LoginService(){
     this.userLogin = function userLogin(loginForm){
         var newLogin = new Login(loginForm)
         $.post(baseUrl, newLogin)
-            .then()
+            .then(res => console.log(res))
+            .fail(logError)
 
 
     }

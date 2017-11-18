@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kill em in the Comments</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/style.css">
 </head>
-
 <body>
     <div class="container outline">
         <div class="row logo outline">
@@ -24,10 +21,13 @@
                     <button type="onsubmit">Search</button>
                 </form>
             </div>
-            <div class="col-sm-4 ilb" id="show-login-form">
+            <div class="col-sm-4" id="show-login-form">
+                <button id="show-button" class="btn btn-info hit" onclick="app.controllers.loginController.showLoginForm()">Login</button>
+            </div>
+            <div class="col-sm-4 ilb hidden" id="add-login-form">
                 <form onsubmit="app.controllers.loginController.userLogin(event)" class="form-group">
                     <input type="text" name="email" class="input-field" id="user-name-field" placeholder="Email">
-                    <input type="text" name="password" class="input-field" placeholder="Password">
+                    <input type="password" name="password" class="input-field" placeholder="Password">
                     <button type="onsubmit">Login</button>
                 </form>
             </div>
@@ -42,171 +42,10 @@
                 <button type="onsubmit">Create Post</button>
             </form>
         </div>
-        <div id="postId"></div>
-        <!-- <div class="panel panel-default text-center spacer">
-            <h3>Post Title</h3>
-            <h1>There once was a man from Nantuckit</h1>
-            <div class="comment-tracker">
-                <h4 style="display:inline">Alive: 12</h4>
-                <h4 style="display:inline">Dead: 3</h4>
-            </div>
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-1">
-                    <form onsubmit="app.controllers.commentController.addComment(event)">
-                        <input type="text" class="comment-field p-l-10" placeholder="Type comment here">
-                        <button type="onsubmit">Comment</button>
-                    </form>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="comments panel">
-            <div class="row">
-                <div class="col-sm-1">
-                    <img src="//placehold.it/100x100" alt="">
-                    <h5>Username</h5>
-                    <h5>HP: 100</h5>
-                </div>
-                <div class="col-sm-8 p-l-30">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero,
-                    non volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales.
-                    Nullam mattis fermentum libero, non volutpat.
-                </div>
-                <div class="col-sm-3">
-                    <div class="up-votes ">
-                        <i class="fa fa-arrow-up vote-size il"></i>
-                        <h5 class="il vote-size">20</h5>
-                    </div>
-                    <div class="down-votes">
-                        <i class="fa fa-arrow-down vote-size il"></i>
-                        <h5 class="il vote-size">90</h5>
-                    </div>
-                    <div class="trash-star pull-right pull-bottom">
-                        <i class=" fa fa-reply ilb" onclick="replyfunction(FINISH)"></i>
-                        <i class=" fa fa-trash ilb" onclick="deletefunction(FINISH)"></i>
-                        <i class=" fa fa-star ilb" onclick="favorite(FINISH)"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="comments panel">
-            <div class="row">
-                <div class="col-sm-1">
-                    <img src="//placehold.it/100x100" alt="">
-                    <h5>Username</h5>
-                    <h5>HP: 100</h5>
-                </div>
-                <div class="col-sm-8 p-l-30">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero,
-                    non volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales.
-                    Nullam mattis fermentum libero, non volutpat.
-                </div>
-                <div class="col-sm-3">
-                    <div class="up-votes ">
-                        <i class="fa fa-arrow-up vote-size il"></i>
-                        <h5 class="il vote-size">20</h5>
-                    </div>
-                    <div class="down-votes">
-                        <i class="fa fa-arrow-down vote-size il"></i>
-                        <h5 class="il vote-size">90</h5>
-                    </div>
-                    <div class="trash-star pull-right pull-bottom">
-                        <i class=" fa fa-reply ilb" onclick="replyfunction(FINISH)"></i>
-                        <i class=" fa fa-trash ilb" onclick="deletefunction(FINISH)"></i>
-                        <i class=" fa fa-star ilb" onclick="favorite(FINISH)"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="comments panel">
-            <div class="row">
-                <div class="col-sm-1">
-                    <img src="//placehold.it/100x100" alt="">
-                    <h5>Username</h5>
-                    <h5>HP: 100</h5>
-                </div>
-                <div class="col-sm-8 p-l-30">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero,
-                    non volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales.
-                    Nullam mattis fermentum libero, non volutpat.
-                </div>
-                <div class="col-sm-3">
-                    <div class="up-votes ">
-                        <i class="fa fa-arrow-up vote-size il"></i>
-                        <h5 class="il vote-size">20</h5>
-                    </div>
-                    <div class="down-votes">
-                        <i class="fa fa-arrow-down vote-size il"></i>
-                        <h5 class="il vote-size">90</h5>
-                    </div>
-                    <div class="trash-star pull-right pull-bottom">
-                        <i class=" fa fa-reply ilb" onclick="replyfunction(FINISH)"></i>
-                        <i class=" fa fa-trash ilb" onclick="deletefunction(FINISH)"></i>
-                        <i class=" fa fa-star ilb" onclick="favorite(FINISH)"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="comments panel">
-            <div class="row">
-                <div class="col-sm-1">
-                    <img src="//placehold.it/100x100" alt="">
-                    <h5>Username</h5>
-                    <h5>HP: 100</h5>
-                </div>
-                <div class="col-sm-8 p-l-30">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero,
-                    non volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales.
-                    Nullam mattis fermentum libero, non volutpat.
-                </div>
-                <div class="col-sm-3">
-                    <div class="up-votes ">
-                        <i class="fa fa-arrow-up vote-size il"></i>
-                        <h5 class="il vote-size">20</h5>
-                    </div>
-                    <div class="down-votes">
-                        <i class="fa fa-arrow-down vote-size il"></i>
-                        <h5 class="il vote-size">90</h5>
-                    </div>
-                    <div class="trash-star pull-right pull-bottom">
-                        <i class=" fa fa-reply ilb" onclick="replyfunction(FINISH)"></i>
-                        <i class=" fa fa-trash ilb" onclick="deletefunction(FINISH)"></i>
-                        <i class=" fa fa-star ilb" onclick="favorite(FINISH)"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="comments panel">
-            <div class="row">
-                <div class="col-sm-1">
-                    <img src="//placehold.it/100x100" alt="">
-                    <h5>Username</h5>
-                    <h5>HP: 100</h5>
-                </div>
-                <div class="col-sm-8 p-l-30">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero,
-                    non volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales.
-                    Nullam mattis fermentum libero, non volutpat.
-                </div>
-                <div class="col-sm-3">
-                    <div class="up-votes ">
-                        <i class="fa fa-arrow-up vote-size il"></i>
-                        <h5 class="il vote-size">20</h5>
-                    </div>
-                    <div class="down-votes">
-                        <i class="fa fa-arrow-down vote-size il"></i>
-                        <h5 class="il vote-size">90</h5>
-                    </div>
-                    <div class="trash-star pull-right pull-bottom">
-                        <i class=" fa fa-reply ilb" onclick="replyfunction(FINISH)"></i>
-                        <i class=" fa fa-trash ilb" onclick="deletefunction(FINISH)"></i>
-                        <i class=" fa fa-star ilb" onclick="favorite(FINISH)"></i>
-                    </div>
-                </div>
-            </div>
-
-        </div> -->
+        <div id="postId"></div>  
     </div>
+
+    <!-- EXTERNAL LIBRARIES -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="app/service/post-service.js"></script>
