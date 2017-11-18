@@ -1,6 +1,6 @@
 function LoginController(){
     var loginService = new LoginService()
-    var loginFormElem = document.getElementById('show-login-form')
+    var loginFormElem = document.getElementById('add-login-form')
     var showButton = document.getElementById('show-button')
     var formstate = false
     
@@ -18,11 +18,20 @@ function LoginController(){
             loginFormElem.classList.add('hidden')
             formstate = false
         }else{
-            showButton.innerText = 'Cancel'
+            showButton.innerText = 'Logout'
+            showButton.onclick = app.controllers.loginController.userLogout(event)
+            console.log(showButton.onclick)
             showButton.className = 'btn btn-warning'
             loginFormElem.classList.remove('hidden')
             formstate = true
         }
+    }
+
+    this.userLogout = function userLogout(event){
+        event.preventDefault()
+        var logoutForm = event.target
+        loginService.userLogin(logoutForm)
+        loginFormElem.classList.toggle('hidden', true)
     }
 
 }
